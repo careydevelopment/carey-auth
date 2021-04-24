@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 //import { UrlService } from '../services/url.service';
 import { UserService } from 'carey-user';
-//import { AlertService } from '../ui/alert/alert.service';
+import { AlertService } from 'carey-alert';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
@@ -20,7 +20,7 @@ export class MatShortVerticalLoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,
     private router: Router, private route: ActivatedRoute,
-    private userService: UserService) { }
+    private userService: UserService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.authenticationService.clearStorage();
@@ -54,8 +54,8 @@ export class MatShortVerticalLoginComponent implements OnInit {
     console.error(err);
 
     if (err instanceof HttpErrorResponse) {
-      //if (err.status == 401) this.alertService.error("Invalid credentials");
-      //else this.alertService.error("Unexpected error - please contact support");
+      if (err.status == 401) this.alertService.error("Invalid credentials");
+      else this.alertService.error("Unexpected error - please contact support");
     } 
 
     this.formSubmitted = false;

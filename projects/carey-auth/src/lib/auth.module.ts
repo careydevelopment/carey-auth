@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
-//import { AlertModule } from '../ui/alert/alert.module';
+import { AlertModule } from 'carey-alert';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    //AlertModule,
+    AlertModule,
   ],
   exports: [
     MatShortVerticalLoginComponent
