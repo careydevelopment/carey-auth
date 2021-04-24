@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9",
-    "carey-user": "0.0.4",
+    "carey-user": "0.0.5",
     "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular/material": "^11.2.10",
     "carey-alert": "0.0.1",
