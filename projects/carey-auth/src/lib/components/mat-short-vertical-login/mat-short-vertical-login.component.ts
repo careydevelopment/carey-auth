@@ -3,7 +3,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { JwtResponse } from '../../models/jwt-response';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-//import { UrlService } from '../services/url.service';
+import { UrlService } from 'carey-url-util';
 import { UserService } from 'carey-user';
 import { AlertService } from 'carey-alert';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -20,7 +20,8 @@ export class MatShortVerticalLoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,
     private router: Router, private route: ActivatedRoute,
-    private userService: UserService, private alertService: AlertService) { }
+    private userService: UserService, private alertService: AlertService,
+    private urlService: UrlService) { }
 
   ngOnInit() {
     this.authenticationService.clearStorage();
@@ -32,7 +33,7 @@ export class MatShortVerticalLoginComponent implements OnInit {
   }
 
   onSubmit(loginForm) {
-    //this.alertService.clear();
+    this.alertService.clear();
     this.formSubmitted = true;
 
     if (this.form.valid) {
@@ -77,12 +78,12 @@ export class MatShortVerticalLoginComponent implements OnInit {
     let returnUrl = map.get('returnUrl');
     let queryParams: any = {};
 
-    //if (returnUrl) {
-    //    queryParams = this.urlService.getQueryParams(returnUrl);
-    //    returnUrl = this.urlService.shortenUrlIfNecessary(returnUrl);
-    //} else {
+    if (returnUrl) {
+        queryParams = this.urlService.getQueryParams(returnUrl);
+        returnUrl = this.urlService.shortenUrlIfNecessary(returnUrl);
+    } else {
         returnUrl = '/dashboard';
-    //}
+    }
 
     this.router.navigate([returnUrl], queryParams);
   }
