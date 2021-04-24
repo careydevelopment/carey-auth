@@ -11,7 +11,7 @@ import { AuthConfig } from '../models/auth-config';
 const TOKEN_NAME = 'id_token';
 const EXPIRES_AT = 'expires_at';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router,

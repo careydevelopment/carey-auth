@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'carey-alert';
+import { AuthenticationService } from './services/authentication.service';
 
 
 @NgModule({
@@ -28,6 +29,9 @@ import { AlertModule } from 'carey-alert';
   ],
   exports: [
     MatShortVerticalLoginComponent
+  ],
+  providers: [
+    AuthenticationService
   ]
 })
 export class AuthModule {
