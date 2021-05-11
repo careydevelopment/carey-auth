@@ -29,9 +29,6 @@ import { AuthenticationService } from './services/authentication.service';
   ],
   exports: [
     MatShortVerticalLoginComponent
-  ],
-  providers: [
-    AuthenticationService
   ]
 })
 export class AuthModule {

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { JwtRequest } from '../models/jwt-request';
 import { JwtResponse } from '../models/jwt-response';
 import { tap, shareReplay } from 'rxjs/operators';
@@ -8,14 +8,18 @@ import { Router } from '@angular/router';
 import { AUTH_CONFIG_TOKEN } from '../models/token';
 import { AuthConfig } from '../models/auth-config';
 
-const TOKEN_NAME = 'id_token';
-const EXPIRES_AT = 'expires_at';
+const TOKEN_NAME = 'careydev_id_token';
+const EXPIRES_AT = 'careydev_token_expires_at';
+const USER = 'careydev_user';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router,
-    @Inject(AUTH_CONFIG_TOKEN) private readonly config: AuthConfig) { }
+    @Inject(AUTH_CONFIG_TOKEN) private readonly config: AuthConfig) {
+  }
 
   login(username: string, password: string): Observable<JwtResponse> {
     let jwtRequest: JwtRequest = { username: username, password: password };
@@ -35,11 +39,13 @@ export class AuthenticationService {
 
     localStorage.setItem(TOKEN_NAME, authResult.token);
     localStorage.setItem(EXPIRES_AT, JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem(USER, JSON.stringify(authResult.user));
   }
 
   clearStorage() {
     localStorage.removeItem(TOKEN_NAME);
     localStorage.removeItem(EXPIRES_AT);
+    localStorage.removeItem(USER); 
   }
 
   logout() {
