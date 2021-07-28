@@ -1,27 +1,21 @@
-# Authenticationmodule
+![Carey Development Logo](http://careydevelopment.us/img/branding/careydevelopment-logo-sm.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+# Carey Development Ecosystem Authentication Module
 
-## Development server
+![license](https://img.shields.io/badge/license-MIT-blue.svg) 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Overview
+This package includes reusable authentication models and a service for the Carey Development ecosystem.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage: Installation
+It's easy to install this package:
+```
+npm install carey-auth
+```
 
-## Build
+Once you've installed it, you can begin using the service and models included in the package.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## License
+This code is under the [MIT License](https://github.com/careydevelopment/carey-auth/blob/master/LICENSE).
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
