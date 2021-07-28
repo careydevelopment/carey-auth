@@ -55,8 +55,16 @@ export class MatShortVerticalLoginComponent implements OnInit {
     console.error(err);
 
     if (err instanceof HttpErrorResponse) {
-      if (err.status == 401) this.alertService.error("Invalid credentials");
-      else this.alertService.error("Unexpected error - please contact support");
+      if (err.status == 401) {
+        if (err.error && err.error.message) {
+          this.alertService.error(err.error.message);
+        } else {
+          this.alertService.error("Invalid credentials");
+        }
+      }
+      else {
+        this.alertService.error("Unexpected error - please contact support");
+      }
     } 
 
     this.formSubmitted = false;

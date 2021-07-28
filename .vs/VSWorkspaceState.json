@@ -6,10 +6,9 @@
     "\\projects\\carey-auth\\src",
     "\\projects\\carey-auth\\src\\lib",
     "\\projects\\carey-auth\\src\\lib\\components",
-    "\\projects\\carey-auth\\src\\lib\\components\\mat-short-vertical-login",
     "\\projects\\carey-auth\\src\\lib\\models",
     "\\projects\\carey-auth\\src\\lib\\services"
   ],
-  "SelectedNode": "\\projects\\carey-auth\\package.json",
+  "SelectedNode": "\\projects\\carey-auth\\src\\lib\\services\\authentication.service.ts",
   "PreviewInSolutionExplorer": false
 }
