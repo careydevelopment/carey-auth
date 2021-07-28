@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { JwtRequest } from '../models/jwt-request';
 import { JwtResponse } from '../models/jwt-response';
 import { tap, shareReplay } from 'rxjs/operators';
@@ -17,6 +17,8 @@ const USER = 'careydev_user';
 })
 export class AuthenticationService {
 
+  authNotification$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
+
   constructor(private http: HttpClient, private router: Router,
     @Inject(AUTH_CONFIG_TOKEN) private readonly config: AuthConfig) {
   }
@@ -27,19 +29,23 @@ export class AuthenticationService {
 
     return this.http.post<JwtResponse>(url,
         jwtRequest).pipe(
-            tap((resp: JwtResponse) => this.setSession(resp)),
+            tap((resp: JwtResponse) => this.successfulLogin(resp)),
             shareReplay()
         );
   }
 
-  private setSession(authResult: JwtResponse) {
+  private successfulLogin(authResult: JwtResponse) {
     const expiresAt = authResult.expirationDate;
     //console.log("Token expires at " + expiresAt);
     //console.log("Token date and time is " + this.dateService.getShortDateAndTimeDisplay(expiresAt));
 
-    localStorage.setItem(TOKEN_NAME, authResult.token);
-    localStorage.setItem(EXPIRES_AT, JSON.stringify(expiresAt.valueOf()));
-    localStorage.setItem(USER, JSON.stringify(authResult.user));
+    if (authResult && authResult.token) {
+      localStorage.setItem(TOKEN_NAME, authResult.token);
+      localStorage.setItem(EXPIRES_AT, JSON.stringify(expiresAt.valueOf()));
+      localStorage.setItem(USER, JSON.stringify(authResult.user));
+
+      this.authNotification$.next(true);
+    }
   }
 
   clearStorage() {
@@ -50,6 +56,7 @@ export class AuthenticationService {
 
   logout() {
     this.clearStorage();
+    this.authNotification$.next(false);
     this.router.navigate(['/login']);
   }
 

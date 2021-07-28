@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'carey-alert';
-import { AuthenticationService } from './services/authentication.service';
 
 
 @NgModule({
