@@ -1,24 +1,21 @@
-# CareyAuth
+![Carey Development Logo](http://careydevelopment.us/img/branding/careydevelopment-logo-sm.png)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.9.
+# Carey Development Ecosystem Authentication Module
 
-## Code scaffolding
+![license](https://img.shields.io/badge/license-MIT-blue.svg) 
+[![npm version](https://badge.fury.io/js/carey-auth.svg)](https://badge.fury.io/js/carey-auth)
 
-Run `ng generate component component-name --project carey-auth` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project carey-auth`.
-> Note: Don't forget to add `--project carey-auth` or else it will be added to the default project in your `angular.json` file. 
+## Overview
+This package includes reusable authentication models and a service for the Carey Development ecosystem.
 
-## Build
+## Usage: Installation
+It's easy to install this package:
+```
+npm install carey-auth
+```
 
-Run `ng build carey-auth` to build the project. The build artifacts will be stored in the `dist/` directory.
+Once you've installed it, you can begin using the service and models included in the package.
 
-## Publishing
+## License
+This code is under the [MIT License](https://github.com/careydevelopment/carey-auth/blob/master/LICENSE).
 
-After building your library with `ng build carey-auth`, go to the dist folder `cd dist/carey-auth` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test carey-auth` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
