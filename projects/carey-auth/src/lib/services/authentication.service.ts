@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 import { AUTH_CONFIG_TOKEN } from '../models/token';
 import { AuthConfig } from '../models/auth-config';
 
-const TOKEN_NAME = 'careydev_id_token';
-const EXPIRES_AT = 'careydev_token_expires_at';
-const USER = 'careydev_user';
+const TOKEN_NAME = 'careydevelopmentecosystem_token';
+const EXPIRES_AT = 'careydevelopmentecosystem_token_expires_at';
+const USER = 'careydevelopmentecosystem_user';
 
 @Injectable({
   providedIn: 'root'
